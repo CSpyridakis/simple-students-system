@@ -13,10 +13,8 @@ services:
     networks:
       - students-system-network
     volumes:
-      - ./mysql/data:/var/lib/mysql
-      # - students-mysql-data:/docker-entrypoint-initdb.d
-      # - students-mysql-data:/data/db
-      # - ./mysql/data/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ./mysql/:/docker-entrypoint-initdb.d  # Initialize database with dump.sql file
+      - ./mysql/data:/var/lib/mysql           # Save to remote folder db updates
 
   #Phpmyadmin     
   phpmyadmin:
@@ -58,7 +56,5 @@ services:
       -  mysql:db
 
 # Networks - Volumes - etc.
-networks:
-  students-system-network:
-volumes:
-  students-mysql-data:
+networks: 
+  students-system-network:    # Inner Network
