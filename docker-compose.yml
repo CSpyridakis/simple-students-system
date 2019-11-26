@@ -13,11 +13,11 @@ services:
     networks:
       - students-system-network
     volumes:
-      - ./mysql/data:/var/lib/mysql
-      # - students-mysql-data:/var/lib/mysql
-  #   volumes:
-  # - ./dump:/docker-entrypoint-initdb.d
-  
+      # - ./mysql/data:/var/lib/mysql
+      # - students-mysql-data:/docker-entrypoint-initdb.d
+      # - students-mysql-data:/data/db
+      - ./mysql/data/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+
   #Phpmyadmin     
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:4.8
