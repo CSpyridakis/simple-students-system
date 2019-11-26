@@ -30,7 +30,7 @@
 
 // -------------------------------------------
 // DATABASE TABLES
-// 
+
 // Create table Teachers (
 //     ID VARCHAR(255) NOT NULL,
 //     NAME VARCHAR(255) NOT NULL,
