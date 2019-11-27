@@ -61,7 +61,10 @@
                             <td><?php echo $grade;?> </td>
                             <td><?php echo $phone;?> </td>
                             <td><?php echo $bday;?> </td>
-                            <td><a onclick="return confirm('Are you sure you want to delete this entry?')" href="/includes/deletestudent.inc.php?id=<?= $id ?>" class='btn btn-danger'>Delete</a></td>
+                            <form action="includes/deletestudent.inc.php" method="post" onsubmit="return confirm('Are you sure you want to delete this entry?')">
+                                <input type="hidden" name="delete-student-id" id="delete-student-id" value="<?= $id ?>">
+                                <td><button name="delete-student-submit" class="btn">Delete</button></td>
+                            </form>
                         </tr>
                         <?php    
                         } 

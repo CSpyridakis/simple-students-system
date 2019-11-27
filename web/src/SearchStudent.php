@@ -24,7 +24,7 @@
         else{
             $searchpattern="%{$_GET['search']}%";
             // Prepare query using placeholders (prevent sql injection)
-            $sql = "SELECT * FROM Students WHERE ID LIKE ? OR NAME LIKE ?";
+            $sql = "SELECT * FROM Students WHERE ID LIKE ? OR NAME LIKE ? OR SURNAME LIKE ?";
 
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -32,7 +32,7 @@
                 exit();
             }
 
-            mysqli_stmt_bind_param($stmt, "ss", $searchpattern, $searchpattern);
+            mysqli_stmt_bind_param($stmt, "sss", $searchpattern, $searchpattern, $searchpattern);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
         }

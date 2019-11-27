@@ -6,9 +6,12 @@
         <?php include 'css/edit_students.css'; ?>
     </style>
 
+    <script>
+        <?php include 'js/updatestudent.js'; ?>
+    </script>
+
     <?php
         require "./includes/dbh.inc.php" ;
-        // Prepare query using placeholders (prevent sql injection)
         $sql = "SELECT * FROM Students";
 
         $stmt = mysqli_stmt_init($conn);
@@ -19,12 +22,6 @@
 
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
-
-        /* // There are not students to delete
-        if (!$row = mysqli_fetch_array($result)){
-            header("Location: ./Students.php?error=emptystudents");
-            exit();
-        } */
     ?>
     <main>
         <div class="main-content">
@@ -54,6 +51,8 @@
                             $bday = $row['Birthday'];
                         ?>
                         <tr>
+                        <form name="edit-student-form" class="edit-student-form" action="/includes/editstudent.inc.php" method="post" onsubmit="return confirm('Are you sure you want to edit this entry?')"> 
+                            <input type="hidden" name="edit-student-id" value="<?php echo $id;?>">
                             <td><?php echo $id;?></td>
                             <td><input type="text" size="10" name="edit-student-name" maxlength="255" placeholder="Name*" value="<?php echo $name;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
                             <td><input type="text" size="10" name="edit-student-surname" maxlength="255" placeholder="Surname*" value="<?php echo $surname;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
@@ -61,7 +60,9 @@
                             <td><input type="number" size="10" name="edit-student-grade" placeholder="Grade*" required min="0" value="<?php echo $grade;?>" step="0.01" title="Could be a floating point number."/></td>
                             <td><input type="text" size="10" name="edit-student-mobile" maxlength="255" placeholder="Mobile*" value="<?php echo $phone;?>" required pattern="[+0-9\-\(\) ]{10,20}" title="Could contain only numbers, space, dash and parentesis."/></td>
                             <td><input type="date" size="10" name="edit-student-birthday" placeholder="Birthday*" value="<?php echo $bday;?>" required title="Could be date."/>
-                            <td><a onclick="return confirm('Are you sure you want to edit this entry?')" href="/includes/editstudent.inc.php?id=<?=$id?>&name=<?=$name?>&surname=<?=$surname?>&fathername=<?=$fathername?>&grade=<?=$grade?>&phone=<?=$phone?>&bday=<?=$bday?>" class='btn'>Edit</a></td>
+                            <td><button  name="edit-student-submit" lass="btn">Edit</button></td>
+                        </form>
+                            
                         </tr>
                         <?php    
                         } 
@@ -72,5 +73,7 @@
         </div>
     </main>
 <?php
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
     require "includes/footer.inc.php";
 ?>
