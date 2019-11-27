@@ -2,11 +2,15 @@
     require "includes/header.inc.php";
 ?>
 
-    <!-- <main>
+    <style>
+        <?php include 'css/teachers.css'; ?>
+    </style>
+
+    <main>
         <div class="main-content">
             
         </div>
-    </main> -->
+    </main>
 
 <?php
     require "includes/footer.inc.php";

@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION["Username"])){
+        header("Location: ../index.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +21,20 @@
     <header>
         <nav class ="menubar">
             <ul>
-                <li><div class="left"><a href="index.php">Home</a></div></li>
+                <li><div class="left"><a href="Teachers.php">Home</a></div></li>
                 <li><div class="left"><a href="AddStudent.php">Add</a></div></li>
                 <li><div class="left"><a href="EditStudent.php">Edit</a></div></li>
                 <li><div class="left"><a href="DeleteStudent.php">Delete</a></div></li>
                 <li>
-                    <div class="left search-div">
-                        <form class="search-form" action="">
-                            <input type="text" name="search" placeholder="Search">
-                            <button>Search</button>
+                    <div class="left wrap search-div">
+                        <form class="search-form search" action="">
+                            <input type="text" name="searchTerm" placeholder="Search">
+                            <button type="submit" class="searchButton">Search</button>
                         </form>
                     </div>
                 </li>
                 <li><div class="nav-user right">USERNAME</div></li>
-                <li><div class="nav-logout right"><a href="#">Logout</a></div></li>
+                <li><div class="nav-logout right"><a href="/includes/logout.inc.php">Logout</a></div></li>
             </ul>
         </nav>
     </header>

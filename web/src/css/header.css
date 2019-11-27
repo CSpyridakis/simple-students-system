@@ -43,6 +43,52 @@
 .nav-logout{
     color: #4CAF50;
 }
+/* -----------------------*/
+
+.search {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    border-radius: 10px;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #4CAF50;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 10px;
+    outline: none;
+    color: #4CAF50;
+  }
+  
+  .searchTerm:focus{
+    color: #4CAF50;
+    border-radius: 10px;
+  }
+  
+  .searchButton {
+    width: 80px;
+    height: 36px;
+    border: 1px solid #4CAF50;
+    background: #4CAF50;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /*Resize the wrap to see the search bar change!*/
+  .wrap{
+    width: 30%;
+    /* position: absolute; */
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+  }
+  /* ----------------------- */
 body {
     /* Backgound image show full height (change based on screen ratio) */
     background: url("../img/login-bg1.jpg") no-repeat center center fixed;

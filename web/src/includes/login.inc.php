@@ -1,59 +1,58 @@
 <?php
-    // Create connection
-// // $conn = new mysql($servername, $username, $password, $dbname);
+    if (isset($_POST['login-submit'])){
+        require "dbh.inc.php" ;
 
-// // // Check connection
-// // if ($conn->connect_error) {
-// //     die("Connection failed: " . $conn->connect_error);
-// // }
+        $umail = $_POST['login-email'];
+        $upass = $_POST['login-pwd'];
 
-// // // sql to create table
-// // // $sql = "CREATE TABLE MyGuests (
-// // // id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-// // // firstname VARCHAR(30) NOT NULL,
-// // // lastname VARCHAR(30) NOT NULL,
-// // // email VARCHAR(50),
-// // // reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-// // // )";
+        if (empty($umail) || empty($upass)){
+            header("Location: ../index.php?error=emptyfields");
+            exit();
+        }
 
-// // $sql = "SELECT * FROM \'Teachers\'" ;
+        // Prepare query using placeholders (prevent sql injection)
+        $sql = "SELECT * FROM Teachers WHERE USERNAME=? OR EMAIL=?;";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("Location: ../index.php?error=sqlerror");
+            exit();
+        }
 
+        // Pass parameters and execute statement 
+        mysqli_stmt_bind_param($stmt, "ss", $umail, $umail);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-// // if ($conn->query($sql) === TRUE) {
-// //     echo "Table MyGuests created successfully";
-// // } else {
-// //     echo "Error creating table: " . $conn->error;
-// // }
+        // User has successfully authenticated
+        if ($row = mysqli_fetch_assoc($result)){
+            # TODO: Fix verify problem
+            $pwdCheck = password_verify($upass, $row['PASSWORD']);
+            if ($pwdCkeck == true || $upass == $row['PASSWORD']){   // Form created with hash, or dummy accounts for testing
+                session_start();
+                $_SESSION['Username'] = $row['USERNAME'];
+                $_SESSION['ID'] = $row['ID'];
+                header("Location: ../Teachers.php?username=".$row['USERNAME']);
+                exit();
+            }
+            else{
+                header("Location: ../index.php?error=wrongcrentetials2");
+                exit();
+            }
+        }
+        else{
+            header("Location: ../index.php?error=wrongcrentetials1");
+            exit();
+        }
+        
+        // Close connections
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+    }
+    // Try to access login without submiting form
+    else{
+        header("Location: ../index.php");
+        exit();
+    }
 
-// $conn->close();
-
-
-// -------------------------------------------
-// DATABASE TABLES
-
-// Create table Teachers (
-//     ID VARCHAR(255) NOT NULL,
-//     NAME VARCHAR(255) NOT NULL,
-//     SURNAME VARCHAR(255) NOT NULL,
-//     USERNAME VARCHAR(255) NOT NULL,
-//     PASSWORD VARCHAR(255) NOT NULL,
-//     EMAIL VARCHAR(255) NOT NULL UNIQUE,
-//     PRIMARY KEY(ID)
-// );
-// Create table Students (
-//     ID VARCHAR(255) NOT NULL UNIQUE,
-//     NAME VARCHAR(255) NOT NULL,
-//     SURNAME VARCHAR(255) NOT NULL,
-//     FATHERNAME VARCHAR(255) NOT NULL,
-//     GRADE FLOAT NOT NULL,
-//     MOBILENUMBER VARCHAR(255) NOT NULL,
-//     Birthday DATE NOT NULL,
-//     PRIMARY KEY(ID)
-// );
-// INSERT INTO `Teachers` (`ID`, `NAME`, `SURNAME`, `USERNAME`, `PASSWORD`, `EMAIL`) VALUES ('JDoe', 'John', 'Doe', 'JDoe_1', 'johnPass1', 'john-doe@email.com');
-// INSERT INTO `Teachers` (`ID`, `NAME`, `SURNAME`, `USERNAME`, `PASSWORD`, `EMAIL`) VALUES ('JSmith', 'Joe', 'Smith', 'JSmith_1', 'joePass1', 'joe-smith@email.com');
-// INSERT INTO `Students` (`ID`, `NAME`, `SURNAME`, `FATHERNAME`, `GRADE`, `MOBILENUMBER`, `Birthday`) VALUES ('AEinstein', 'Albert', 'Einstein', 'Hermann', '19.05', '(+18)-791-804-1955', '1879-03-14');
-// INSERT INTO `Students` (`ID`, `NAME`, `SURNAME`, `FATHERNAME`, `GRADE`, `MOBILENUMBER`, `Birthday`) VALUES ('CShannon', 'Claude', 'Shannon', 'Elwood', '19.37', '(+19)-162-402-2001', '1916-04-30');
-// INSERT INTO `Students` (`ID`, `NAME`, `SURNAME`, `FATHERNAME`, `GRADE`, `MOBILENUMBER`, `Birthday`) VALUES ('ATuring', 'Alan', 'Turing', 'Matheson', '19.31', '(+19)-120-706-1954', '1912-06-23');
 
 

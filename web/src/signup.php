@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION["Username"])){
+        header("Location: ./Teachers.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +26,10 @@
       <input type="text" name="register-name" maxlength="255" placeholder="Name*" required pattern="[A-Za-z]+" title="Could contain only latin characters."/>
       <input type="text" name="register-surname" maxlength="255" placeholder="Surname*" required pattern="[A-Za-z]+" title="Could contain only latin characters."/>
       <input type="text" name="register-username" maxlength="255" placeholder="Username*" required pattern="[A-Za-z0-9_]+" title="Could contain only latin characters, numbers and underscore."/>
-      <input type="email" name="register-email1" maxlength="255" placeholder="Email*" title="Please enter an acceptable email. E.g: joe-smith_2@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
-      <input type="email" name="register-email2" maxlength="255" placeholder="Email (again)*" title="Please enter an acceptable email. E.g: joe-smith_2@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
-      <input type="password" name="register-pwd1" maxlength="255" placeholder="Password*" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
-      <input type="password" name="register-pwd2" maxlength="255" placeholder="Password (again)*" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
+      <input type="email" name="register-email1" maxlength="255" placeholder="Email*" title="Please enter an acceptable email. E.g: joe-smith_2@email.com" required pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+      <input type="email" name="register-email2" maxlength="255" placeholder="Email (again)*" title="Please enter an acceptable email. E.g: joe-smith_2@email.com" required pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+      <input type="password" name="register-pwd1" maxlength="50" placeholder="Password*" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
+      <input type="password" name="register-pwd2" maxlength="50" placeholder="Password (again)*" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
       <button type="submit" name="register-submit">SIGN UP</button>
       <p class="message">Already registered? <a href="index.php">Sign In</a></p>
     </form>

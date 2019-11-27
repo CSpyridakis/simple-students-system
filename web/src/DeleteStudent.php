@@ -2,8 +2,14 @@
     require "includes/header.inc.php";
 ?>
 
+    <style>
+        <?php include 'css/delete_students.css'; ?>
+    </style>
+
     <main>
-    
+        <div class="main-content">
+            
+        </div>
     </main>
 
 <?php
