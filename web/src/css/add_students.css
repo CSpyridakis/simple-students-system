@@ -1,12 +1,12 @@
-.add-user-page {
+.add-student-page {
     width: 70%;
     padding: 10% 0 0;
     margin: auto;
   }
-  .add-user-page-form-text{
+  .add-student-page-form-text{
     position: relative;
   }
-  .add-user-page-form-text h2{
+  .add-student-page-form-text h2{
     font-family: "Times New Roman", Times, serif;
     font-size: 24px;
   }

@@ -33,7 +33,14 @@
     text-decoration: none;
 }
 .menubar ul li a{
-    
+    width: 60px;
+    display: block;
+    color: white;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 .menubar ul li a:hover:not(.active) {
     background-color: #4CAF50;
