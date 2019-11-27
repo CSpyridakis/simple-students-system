@@ -2,9 +2,11 @@
     require "includes/header.inc.php";
 ?>
 
-    <main>
-    
-    </main>
+    <!-- <main>
+        <div class="main-content">
+            
+        </div>
+    </main> -->
 
 <?php
     require "includes/footer.inc.php";
