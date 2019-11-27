@@ -5,9 +5,6 @@
     <style>
         <?php include 'css/add_students.css'; ?>
     </style>
-    <script>
-        <?php include 'css/add_students.css'; ?>
-    </script>
     <main>
         <!-- <div class="main-content"> -->
             <?php
