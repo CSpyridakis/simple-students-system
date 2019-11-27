@@ -18,10 +18,18 @@
   <script src="js/register.js"></script> 
 </head>
 <body>
+<?php
+    if($_GET['error'] == "sqlerror"){
+      echo "<script>alert('There is something wrong with the database');</script>";
+    }
+    else if($_GET['error'] == "userexists"){
+      echo "<script>alert('ID, Username or Email already exists!');</script>";
+    }
+?>
 <div class="login_register-page">
     <div class="form">
     <div class='login_register-form-text'><h2>Welcome to Students Management System</h2></div>
-    <form name="register-form" class="register-form" action="includes/register.inc.php" onsubmit="return validateForm()" method="post">
+    <form name="register-form" class="register-form" onsubmit="return validateForm()" action="includes/register.inc.php"  method="post">
       <input type="text" name="register-id" maxlength="255" placeholder="ID*" required pattern="[A-Za-z0-9]+" title="Could contain only latin characters and numbers."/>
       <input type="text" name="register-name" maxlength="255" placeholder="Name*" required pattern="[A-Za-z]+" title="Could contain only latin characters."/>
       <input type="text" name="register-surname" maxlength="255" placeholder="Surname*" required pattern="[A-Za-z]+" title="Could contain only latin characters."/>

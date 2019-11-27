@@ -17,6 +17,21 @@
   <link rel="stylesheet" href="css/login_register.css" type="text/css">
 </head>
 <body>
+<?php
+  if(isset($_GET['error'])){
+    if($_GET['error'] == "sqlerror"){
+      echo "<script>alert('There is something wrong with the database');</script>";
+    }
+    else if($_GET['error'] == "wrongcrentetials1" || $_GET['error'] == "wrongcrentetials2"){
+      echo "<script>alert('Username or password is wrong');</script>";
+    }
+  }
+  else if (isset($_GET['register'])){
+    if($_GET['register'] == "true"){
+      echo "<script>alert('User Created!');</script>";
+    }
+  }
+?>
 <div class="login_register-page">
   <div class="form">
     <div class='login_register-form-text'><h2>Welcome to Students Management System</h2></div>
