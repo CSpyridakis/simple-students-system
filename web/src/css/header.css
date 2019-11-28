@@ -4,7 +4,7 @@
 }
 .menubar{
     width: 100%;
-    background: #b3b3b3;
+    background: #abf8c2;
     overflow: auto;
 }
 .menubar ul{
@@ -45,22 +45,19 @@
 .menubar ul li a:hover:not(.active) {
     background-color: #4CAF50;
 }
-.nav-user{
+.user-name-header{
     display: block;
-    color: white;
     height: fit-content;
+    width: fit-content;
+    float: right;
+    color: black;
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-right: 10px;
 }
-.nav-logout{
-    color: #4CAF50;
+.logout-user{
+    margin-right: 10px;
 }
 html, body {
     height:100%;
 } 
- body {
-    /* Backgound image show full height (change based on screen ratio) */
-    /* background: url("../img/login-bg1.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;    */
-}

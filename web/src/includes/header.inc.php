@@ -28,9 +28,11 @@
                 <li><div class="nav-item left"><a href="EditStudent.php">Edit</a></div></li>
                 <li><div class="nav-item left"><a href="DeleteStudent.php">Delete</a></div></li>
                 <li><div class="nav-item left"><a href="SearchStudent.php">Search</a></div></li>
-                <?php echo '<li><div class="nav-item nav-user right">'.$username.'</div></li>' ; ?>
-                <li><div class="nav-item nav-logout right"><a href="/includes/logout.inc.php">Logout</a></div></li>
+                <li><div class="nav-item logout-user right"><a href="/includes/logout.inc.php">Logout</a></div></li>
             </ul>
+            <div class="user-name-header"><?php echo $username;?></div>
         </nav>
     </header>
+    <br>
+    <br>
     
