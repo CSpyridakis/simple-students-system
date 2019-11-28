@@ -5,11 +5,7 @@
     <style>
         <?php include 'css/edit_students.css'; ?>
     </style>
-
-    <script>
-        <?php include 'js/updatestudent.js'; ?>
-    </script>
-
+    
     <?php
         require "./includes/dbh.inc.php" ;
 
@@ -57,12 +53,12 @@
                         <form name="edit-student-form" class="edit-student-form" action="/includes/editstudent.inc.php" method="post" onsubmit="return confirm('Are you sure you want to edit this entry?')"> 
                             <input type="hidden" name="edit-student-id" value="<?php echo $id;?>">
                             <td><?php echo $id;?></td>
-                            <td><input type="text" size="10" name="edit-student-name" maxlength="255" placeholder="Name*" value="<?php echo $name;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
-                            <td><input type="text" size="10" name="edit-student-surname" maxlength="255" placeholder="Surname*" value="<?php echo $surname;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
-                            <td><input type="text" size="10" name="edit-student-fathername" maxlength="255" placeholder="Father's Name*" value="<?php echo $fathername;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
-                            <td><input type="number" size="10" name="edit-student-grade" placeholder="Grade*" required min="0" value="<?php echo $grade;?>" step="0.01" title="Could be a floating point number."/></td>
-                            <td><input type="text" size="10" name="edit-student-mobile" maxlength="255" placeholder="Mobile*" value="<?php echo $phone;?>" required pattern="[+0-9\-\(\) ]{10,20}" title="Could contain only numbers, space, dash and parentesis."/></td>
-                            <td><input type="date" size="10" name="edit-student-birthday" placeholder="Birthday*" value="<?php echo $bday;?>" required title="Could be date."/>
+                            <td><input class="std-ed-te" type="text" size="10" name="edit-student-name" maxlength="255" placeholder="Name*" value="<?php echo $name;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
+                            <td><input class="std-ed-te" type="text" size="10" name="edit-student-surname" maxlength="255" placeholder="Surname*" value="<?php echo $surname;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
+                            <td><input class="std-ed-te" type="text" size="10" name="edit-student-fathername" maxlength="255" placeholder="Father's Name*" value="<?php echo $fathername;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
+                            <td><input class="std-ed-te" type="number" size="10" name="edit-student-grade" placeholder="Grade*" required min="0" value="<?php echo $grade;?>" step="0.01" title="Could be a floating point number."/></td>
+                            <td><input class="std-ed-te" type="text" size="10" name="edit-student-mobile" maxlength="255" placeholder="Mobile*" value="<?php echo $phone;?>" required pattern="[+0-9\-\(\) ]{10,20}" title="Could contain only numbers, space, dash and parentesis."/></td>
+                            <td><input class="std-ed-te" type="date" size="10" name="edit-student-birthday" placeholder="Birthday*" value="<?php echo $bday;?>" required title="Could be date."/>
                             <td><button  name="edit-student-submit" lass="btn">Edit</button></td>
                         </form>
                             

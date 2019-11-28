@@ -1,16 +1,19 @@
-.main-content {
-    /* width: 80%;
-    /* padding: 10% 0 0; */
-    /* margin: auto; */
-    /* position: relative; */
-/* z-index: 1;
-background:
-#FFFFFF;
-max-width: 400px;
-margin: 0 auto 100px;
-padding: 50px;
-text-align: center;
-border-radius: 10px;
-box-shadow: 0 0 50px 0
-rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.24); */ */
-  }
+input {
+  width: 100%;
+  box-sizing: border-box;
+  margin:0%;
+  padding:0%;
+}
+
+/* Remove Arrows/Spinners on number element of input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}

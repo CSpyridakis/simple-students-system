@@ -36,7 +36,7 @@
   <div class="form">
     <div class='login_register-form-text'><h2>Welcome to Students Management System</h2></div>
     <form class="login-form" action="includes/login.inc.php" method="post">
-      <input type="text" name="login-email" maxlength="100" placeholder="Email*" required/>
+      <input type="text" name="login-email" maxlength="100" placeholder="Username/Email*" required/>
       <input type="password" name="login-pwd" maxlength="100" placeholder="Password*" required/>
       <button type="submit" name="login-submit">LOGIN</button>
       <p class="message">Not registered? <a href="signup.php">Create an account</a></p> 

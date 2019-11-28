@@ -42,50 +42,53 @@
     ?>
     <main>
         <div class="main-content">
-            <div>
-                <div class="search-form" >
+        <div class="search-wrap">
+            <br>
+            <div class="search">
                     <form action="" method="GET" >
-                        <input type="text" name="search" maxlength="255" placeholder="Search" />
-                        <button type="submit" name="search-submit">Search</button>
+                        <input class="searchTerm" type="text" name="search" maxlength="255" placeholder="Search by ID, Name or Surname: (empty for all)" />
+                        <button class="searchButton" type="submit" hidden="true" name="search-submit">Search</button>
                     </form>
                 </div>
-                <div class="card-header">
-                    <h2>All Students</h2>
-                </div>
-                <div class="card-body">
-                    <table id="students-table" class="table search-table">
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Surname</th>
-                            <th>Father</th>
-                            <th>Grade</th>
-                            <th>Phone Number</th>
-                            <th>Birthday</th>
-                        </tr>
-                        <?php
-                        while ($row = mysqli_fetch_array($result)){
-                            $id = $row['ID'];
-                            $name = $row['NAME'];
-                            $surname = $row['SURNAME'];
-                            $fathername = $row['FATHERNAME'];
-                            $grade = $row['GRADE'];
-                            $phone = $row['MOBILENUMBER'];
-                            $bday = $row['Birthday'];
-                        ?>
-                        <tr>
-                            <td><?php echo $id;?> </td>
-                            <td><?php echo $name;?> </td>
-                            <td><?php echo $surname;?> </td>
-                            <td><?php echo $fathername;?> </td>
-                            <td><?php echo $grade;?> </td>
-                            <td><?php echo $phone;?> </td>
-                            <td><?php echo $bday;?> </td>
-                        <?php    
-                        } 
-                        ?>
-                    </table>
-                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="card-header">
+                <h2>All Students</h2>
+            </div>
+            <div class="card-body">
+                <table id="students-table" class="table search-table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Father</th>
+                        <th>Grade</th>
+                        <th>Phone Number</th>
+                        <th>Birthday</th>
+                    </tr>
+                    <?php
+                    while ($row = mysqli_fetch_array($result)){
+                        $id = $row['ID'];
+                        $name = $row['NAME'];
+                        $surname = $row['SURNAME'];
+                        $fathername = $row['FATHERNAME'];
+                        $grade = $row['GRADE'];
+                        $phone = $row['MOBILENUMBER'];
+                        $bday = $row['Birthday'];
+                    ?>
+                    <tr>
+                        <td><?php echo $id;?> </td>
+                        <td><?php echo $name;?> </td>
+                        <td><?php echo $surname;?> </td>
+                        <td><?php echo $fathername;?> </td>
+                        <td><?php echo $grade;?> </td>
+                        <td><?php echo $phone;?> </td>
+                        <td><?php echo $bday;?> </td>
+                    <?php    
+                    } 
+                    ?>
+                </table>
             </div>
         </div>
     </main>
