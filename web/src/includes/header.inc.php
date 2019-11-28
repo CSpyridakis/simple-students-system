@@ -17,6 +17,7 @@
     <?php echo "<title>".substr(basename($_SERVER['PHP_SELF']),0,-4)."</title>"; ?>
     <link rel="stylesheet" href="../css/header.css" type="text/css">
     <link rel="stylesheet" href="../css/main.css" type="text/css">
+    <link rel="stylesheet" href="../css/tables.css" type="text/css">
 </head>
 <body>
     <header>

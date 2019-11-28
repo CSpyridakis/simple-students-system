@@ -8,7 +8,9 @@
 
     <main>
         <div class="main-content">
-            
+            <div class="welcome-message">
+                <p>Welcome to Students Administration System</p>
+            </div>
         </div>
     </main>
 

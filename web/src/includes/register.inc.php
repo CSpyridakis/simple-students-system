@@ -11,7 +11,7 @@
         $upass1 = $_POST['register-pwd1'];
         $upass2 = $_POST['register-pwd2'];
 
-        // Check and in backend if register fields are acceptable
+        // Check in backend if register fields are acceptable
         if (empty($uid) || empty($uname) || empty($usname) || empty($username) || empty($uemail1) || empty($uemail2) || empty($upass1) || empty($upass2)){
             header("Location: ../signup.php?error=emptyfields");
             exit();

@@ -39,9 +39,7 @@
       <input type="text" name="login-email" maxlength="100" placeholder="Email*" required/>
       <input type="password" name="login-pwd" maxlength="100" placeholder="Password*" required/>
       <button type="submit" name="login-submit">LOGIN</button>
-      <!-- TODO: -->
       <p class="message">Not registered? <a href="signup.php">Create an account</a></p> 
-      <!-- <p class="message">Not registered? <a href="Teachers.php">Create an account</a></p> -->
     </form>
   </div>
 </div>

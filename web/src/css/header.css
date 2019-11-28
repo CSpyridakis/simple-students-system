@@ -56,11 +56,11 @@
 html, body {
     height:100%;
 } 
-/* body {
+ body {
     /* Backgound image show full height (change based on screen ratio) */
-    background: url("../img/login-bg1.jpg") no-repeat center center fixed;
+    /* background: url("../img/login-bg1.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;   
-} */
+    background-size: cover;    */
+}

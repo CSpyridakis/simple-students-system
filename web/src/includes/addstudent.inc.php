@@ -10,7 +10,7 @@
         $uphone = $_POST['add-student-mobile'];
         $ubdate = $_POST['add-student-birthday'];
 
-        // Check and in backend if register fields are acceptable
+        // Check in backend if fields are acceptable
         if (empty($uid) || empty($uname) || empty($usname) || empty($ufather) || empty($ugrade) || empty($uphone) || empty($ubdate)){
             header("Location: ../AddStudent.php?error=emptyfields");
             exit();

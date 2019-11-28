@@ -8,30 +8,32 @@
 
     <?php
         require "./includes/dbh.inc.php" ;
-        if(!isset($_GET['search'])){
-            // Prepare query using placeholders (prevent sql injection)
-            $sql = "SELECT * FROM Students";
 
+        // Check if search parameter exists in url
+        // If there is find out users with this pattern
+        // in their id or name and display them
+
+        // Seach parameter does not exist
+        if(!isset($_GET['search'])){
+            $sql = "SELECT * FROM Students";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 header("Location: ./Students.php?error=sqlerror");
                 exit();
             }
-
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
         }
+        // Seach parameter exist
         else{
             $searchpattern="%{$_GET['search']}%";
             // Prepare query using placeholders (prevent sql injection)
             $sql = "SELECT * FROM Students WHERE ID LIKE ? OR NAME LIKE ? OR SURNAME LIKE ?";
-
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 header("Location: ./Students.php?error=sqlerror");
                 exit();
             }
-
             mysqli_stmt_bind_param($stmt, "sss", $searchpattern, $searchpattern, $searchpattern);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
@@ -41,7 +43,7 @@
     <main>
         <div class="main-content">
             <div>
-                <div>
+                <div class="search-form" >
                     <form action="" method="GET" >
                         <input type="text" name="search" maxlength="255" placeholder="Search" />
                         <button type="submit" name="search-submit">Search</button>
@@ -51,7 +53,7 @@
                     <h2>All Students</h2>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    <table id="students-table" class="table search-table">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>

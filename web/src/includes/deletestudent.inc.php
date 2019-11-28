@@ -33,6 +33,6 @@
     }
     // Try to access register without submiting form
     else{
-        header("Location: ../EditStudent.php?POST=false");
+        header("Location: ../DeleteStudent.php?POST=false");
         exit();
     }

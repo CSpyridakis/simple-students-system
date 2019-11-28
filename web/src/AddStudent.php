@@ -8,6 +8,7 @@
     <main>
         <!-- <div class="main-content"> -->
             <?php
+                // Check if some error exist and inform user
                 if(isset($_GET['error'])){
                     if($_GET['error'] == "sqlerror"){
                     echo "<script>alert('There is something wrong with the database');</script>";
@@ -16,6 +17,7 @@
                     echo "<script>alert('Username already exists');</script>";
                     }
                 }
+                // Inform user when a new user added successfully to system
                 else if (isset($_GET['add-student'])){
                     if($_GET['add-student'] == "true"){
                     echo "<script>alert('User Created!');</script>";

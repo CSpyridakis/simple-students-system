@@ -12,14 +12,16 @@
 
     <?php
         require "./includes/dbh.inc.php" ;
-        $sql = "SELECT * FROM Students";
 
+        // First of all get them and afterwards display 
+        // them in a while loop
+
+        $sql = "SELECT * FROM Students";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql)){
             header("Location: ./Students.php?error=sqlerror");
             exit();
         }
-
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
     ?>
@@ -30,7 +32,7 @@
                     <h2>All Students</h2>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    <table id="students-table" class="table table-bordered">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
@@ -39,6 +41,7 @@
                             <th>Grade</th>
                             <th>Phone Number</th>
                             <th>Birthday</th>
+                            <th>Action</th>
                         </tr>
                         <?php
                         while ($row = mysqli_fetch_array($result)){
