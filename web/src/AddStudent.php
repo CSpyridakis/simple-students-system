@@ -6,7 +6,6 @@
         <?php include 'css/add_students.css'; ?>
     </style>
     <main>
-        <!-- <div class="main-content"> -->
             <?php
                 // Check if some error exist and inform user
                 if(isset($_GET['error'])){
