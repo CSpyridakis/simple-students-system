@@ -32,7 +32,7 @@
                 <input type="text" name="add-student-surname" maxlength="255" placeholder="Surname*" required pattern="[A-Za-z]+" title="Could contain only latin characters."/>
                 <input type="text" name="add-student-fathername" maxlength="255" placeholder="Father's Name*" required pattern="[A-Za-z]+" title="Could contain only latin characters."/>
                 <input type="number" name="add-student-grade" placeholder="Grade*" value="" required min="0" value="20" step="0.01" title="Could be a floating point number."/>
-                <input type="text" name="add-student-mobile" maxlength="255" placeholder="Mobile*" required pattern="[+0-9\-\(\) ]{10,20}" title="Could contain only numbers, space, dash and parentesis."/>
+                <input type="text" name="add-student-mobile" maxlength="255" placeholder="Mobile*" required pattern="[+0-9\-\(\) ]" title="Could contain only numbers, space, dash and parentesis."/>
                 <input type="date" name="add-student-birthday" placeholder="Birthday*" value="" required title="Could be date."/>
                 <button type="submit" name="add-student-submit">ADD</button>
                 </form>
