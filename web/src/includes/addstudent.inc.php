@@ -15,7 +15,7 @@
             header("Location: ../AddStudent.php?error=emptyfields");
             exit();
         }
-        else if (!preg_match("/^[a-zA-Z0-9]+$/", $uid)){
+        else if (!preg_match("/^[a-zA-Z0-9_]+$/", $uid)){
             header("Location: ../AddStudent.php?error=notvalidid");
             exit();
         }
@@ -28,10 +28,6 @@
             exit();
         }
         else if (!preg_match("/^[A-Za-z]+$/", $ufather)){
-            header("Location: ../AddStudent.php?error=notvalidusername");
-            exit();
-        }
-        else if (!preg_match("/^[+0-9\-\(\) ]{10,20}$/", $uphone)){
             header("Location: ../AddStudent.php?error=notvalidusername");
             exit();
         }

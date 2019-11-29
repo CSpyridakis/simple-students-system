@@ -9,6 +9,15 @@
     <?php
         require "./includes/dbh.inc.php" ;
 
+        // Check if some error exist and inform user
+        if(isset($_GET['error'])){
+            if($_GET['error'] == "sqlerror"){
+                echo "<script>alert('There is something wrong with the database');</script>";
+            }
+            else{
+                echo "<script>alert('Unexpected error');</script>";
+            }
+        }
         // Show user in Edit page
         // First of all get them and afterwards display 
         // them in a while loop
@@ -58,7 +67,7 @@
                             <td><input class="std-ed-te" type="text" size="10" name="edit-student-surname" maxlength="255" placeholder="Surname*" value="<?php echo $surname;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
                             <td><input class="std-ed-te" type="text" size="10" name="edit-student-fathername" maxlength="255" placeholder="Father's Name*" value="<?php echo $fathername;?>" required pattern="[A-Za-z]+" title="Could contain only latin characters."/></td>
                             <td><input class="std-ed-te" type="number" size="10" name="edit-student-grade" placeholder="Grade*" required min="0" value="<?php echo $grade;?>" step="0.01" title="Could be a floating point number."/></td>
-                            <td><input class="std-ed-te" type="text" size="10" name="edit-student-mobile" maxlength="255" placeholder="Mobile*" value="<?php echo $phone;?>" required pattern="[+0-9\-\(\) ]{10,20}" title="Could contain only numbers, space, dash and parentesis."/></td>
+                            <td><input class="std-ed-te" type="text" size="10" name="edit-student-mobile" maxlength="255" placeholder="Mobile*" value="<?php echo $phone;?>" required pattern="[0-9\-\(\) \+]+" title="Could contain only numbers, space, dash and parentesis."/></td>
                             <td><input class="std-ed-te" type="date" size="10" name="edit-student-birthday" placeholder="Birthday*" value="<?php echo $bday;?>" required title="Could be date."/>
                             <td><button  name="edit-student-submit" lass="btn">Edit</button></td>
                         </form>

@@ -26,6 +26,9 @@
     else if($_GET['error'] == "wrongcrentetials1" || $_GET['error'] == "wrongcrentetials2"){
       echo "<script>alert('Username or password is wrong');</script>";
     }
+    else{
+      echo "<script>alert('Unexpected error');</script>";
+    }
   }
   else if (isset($_GET['register'])){
     if($_GET['register'] == "true"){
