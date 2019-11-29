@@ -13,7 +13,7 @@
                         echo "<script>alert('There is something wrong with the database');</script>";
                     }
                     else if($_GET['error'] == "userexists"){
-                        echo "<script>alert('Username already exists');</script>";
+                        echo "<script>alert('ID or Mobile already exists');</script>";
                     }
                     else{
                         echo "<script>alert('Unexpected error');</script>";
