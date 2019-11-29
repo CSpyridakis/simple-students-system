@@ -5,6 +5,7 @@
         $umail = $_POST['login-email'];
         $upass = $_POST['login-pwd'];
 
+        // Check input fields
         if (empty($umail) || empty($upass)){
             header("Location: ../index.php?error=emptyfields");
             exit();

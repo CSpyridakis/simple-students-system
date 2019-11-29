@@ -9,6 +9,7 @@
     <?php
         require "./includes/dbh.inc.php" ;
 
+        // Show user in Edit page
         // First of all get them and afterwards display 
         // them in a while loop
 

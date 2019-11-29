@@ -10,8 +10,8 @@
         require "./includes/dbh.inc.php" ;
 
         // Check if search parameter exists in url
-        // If there is find out users with this pattern
-        // in their id or name and display them
+        // Find out users with given pattern
+        // in their id, name or surname and display them
 
         // Seach parameter does not exist
         if(!isset($_GET['search'])){

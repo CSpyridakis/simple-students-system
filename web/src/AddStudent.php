@@ -16,7 +16,7 @@
                     echo "<script>alert('Username already exists');</script>";
                     }
                 }
-                // Inform user when a new user added successfully to system
+                // Inform user when a new user added successfully to the system
                 else if (isset($_GET['add-student'])){
                     if($_GET['add-student'] == "true"){
                     echo "<script>alert('User Created!');</script>";

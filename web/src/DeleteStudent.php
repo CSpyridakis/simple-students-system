@@ -9,7 +9,7 @@
     <?php
         require "./includes/dbh.inc.php" ;
 
-        // Show add users in Delete page
+        // Show users in Delete page
         // First of all get them and afterwards display 
         // them in a while loop
         

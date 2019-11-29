@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+    // Check if user is not connected
     if (!isset($_SESSION["Username"])){
         header("Location: ../index.php");
         exit();

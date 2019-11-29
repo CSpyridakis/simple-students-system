@@ -49,12 +49,10 @@
         mysqli_stmt_execute($stmt);
     
         if(mysqli_stmt_affected_rows($stmt)){
-            // echo "UPDATED";
             header("Location: ../EditStudent.php?edited=true");
             exit();
         }
         else{
-            // echo "NOT";
             // echo mysqli_stmt_error($stmt);
             header("Location: ../EditStudent.php?edited=false");
             exit();

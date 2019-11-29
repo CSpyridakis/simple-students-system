@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+    // If you are already connected goto Home page
     if (isset($_SESSION["Username"])){
         header("Location: ./Teachers.php");
         exit();
