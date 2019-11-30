@@ -1,4 +1,4 @@
-# simple-students-system ![MIT license](https://img.shields.io/github/license/CSpyridakis/simple-students-system?style=plastic) ![Size](https://img.shields.io/github/repo-size/CSpyridakis/simple-students-system.svg?style=plastic)
+# simple-students-system ![MIT license](https://img.shields.io/github/license/CSpyridakis/simple-students-system.svg?style=plastic) ![Size](https://img.shields.io/github/repo-size/CSpyridakis/simple-students-system.svg?style=plastic)
 
 This project is an educational implementation of a simple students administration system web application.
 
